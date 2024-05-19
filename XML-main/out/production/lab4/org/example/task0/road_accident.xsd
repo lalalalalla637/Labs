@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="road_accident" type="road_accidentType"/>
+    <xs:complexType name="coordinateType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="COORD_L"/>
+            <xs:element type="xs:string" name="COORD_W"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="tabType">
+        <xs:sequence>
+            <xs:element type="xs:string" name="district"/>
+            <xs:element type="coordinateType" name="coordinate"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ragNameType" mixed="true">
+        <xs:sequence>
+            <xs:element type="tabType" name="tab" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="road_accidentType">
+        <xs:sequence>
+            <xs:element type="ragNameType" name="ragName" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
